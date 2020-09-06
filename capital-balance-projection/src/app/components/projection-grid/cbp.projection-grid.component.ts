@@ -21,25 +21,25 @@ export class ProjectionGridComponent implements OnInit, OnDestroy {
   private subscriptions: Subscription;
 
   /** This is  column defination of the */
-  private columnDefs: Array<object>;
+  public columnDefs: Array<object>;
 
   /** This is the row data of the grid. */
-  private rowData: CBPProjectionModel[] = [];
+  public rowData: CBPProjectionModel[] = [];
 
   /** This is the default column settings rule. */
-  private defaultColDef;
+  public defaultColDef;
 
   /** This property will always display the pivot panel. */
-  private pivotPanelShow;
+  public pivotPanelShow;
 
   /** This is the pagination size of the grid. */
-  private paginationPageSize;
+  public paginationPageSize;
 
   /** THis is the grid api of the ag grid. */
-  private gridApi;
+  public gridApi;
 
   /** This defines the page size options in an array. */
-  private pageSizes: Array<number>;
+  public pageSizes: Array<number>;
   /**
    * This is the constructor function of the class.
    * THis initilizes the data sharing service.

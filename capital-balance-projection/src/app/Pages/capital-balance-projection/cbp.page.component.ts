@@ -9,8 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class CBPPageComponent implements OnInit {
 
   /** this variable will determine to show chart and table or not. */
-  private showChartAndTable = false;
-
+  public showChartAndTable = false;
 
   constructor() { }
 

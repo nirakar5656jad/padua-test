@@ -12,7 +12,7 @@ import { withdrawalAgeValidator } from 'src/app/validators/cbp.validators';
 export class InputFormComponent implements OnInit {
 
   /** Validation for the form. */
-  private inputForm: FormGroup;
+  public inputForm: FormGroup;
 
   /** This is the output event that will be emitted when the form is valid and we need to show the grid and table. */
   @Output() validFormSubmitEvent = new EventEmitter<boolean>();

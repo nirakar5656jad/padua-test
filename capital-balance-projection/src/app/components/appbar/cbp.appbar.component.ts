@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CBPAppbarComponent implements OnInit {
   /** This is the title of the app. */
-  private title: string;
+  public title: string;
   constructor() { }
 
   /**

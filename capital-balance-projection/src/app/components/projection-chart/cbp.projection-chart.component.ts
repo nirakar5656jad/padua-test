@@ -18,18 +18,18 @@ import { CBPProjectionModel } from 'src/app/Models/cbp.projection.model';
  */
 export class ProjectionChartComponent implements OnInit, OnDestroy {
   /** declear and initilize the label of the chart. */
-  private chartLabel: string;
+  public chartLabel: string;
 
-  private lineChartData: ChartDataSets[];
+  public lineChartData: ChartDataSets[];
 
-  private lineChartLabels: Label[] = [];
+  public lineChartLabels: Label[] = [];
 
-  private xAxisData: Array<number> = [];
+  public xAxisData: Array<number> = [];
 
-  private yAxisData: Array<string> = [];
+  public yAxisData: Array<string> = [];
 
   /** Initilize the linechart options. */
-  private lineChartOptions: ChartOptions = {
+  public lineChartOptions: ChartOptions = {
     responsive: true,
     scales: {
       yAxes: [{
@@ -55,7 +55,7 @@ export class ProjectionChartComponent implements OnInit, OnDestroy {
   };
 
   /** Initilize the colour of the line chart. */
-  private lineChartColors: Color[] = [
+  public lineChartColors: Color[] = [
     {
       borderColor: 'black',
       backgroundColor: 'rgba(255,0,0,0.3)',
@@ -63,13 +63,13 @@ export class ProjectionChartComponent implements OnInit, OnDestroy {
   ];
 
   /** set the legend of the line chart to true; */
-  private lineChartLegend = true;
+  public lineChartLegend = true;
 
   /** Chart type set to line chart. */
-  private lineChartType = 'line';
+  public lineChartType = 'line';
 
   /** Plugin initilized to empty array. */
-  private lineChartPlugins = [];
+  public lineChartPlugins = [];
 
   /** This is the subscription variable to store the subscriber. */
   private subscriptions: Subscription;
