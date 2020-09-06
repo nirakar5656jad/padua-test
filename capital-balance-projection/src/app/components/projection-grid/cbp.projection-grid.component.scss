@@ -1,0 +1,20 @@
+.grid-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  margin-top: 20px;
+  border-radius: 5px;
+  border: 2px solid #000000;
+  width: 100%;
+  padding: 10px 10px 10px 10px;
+}
+#myGrid {
+  flex: 1 1 auto;
+  width: 100%;
+}
+.grid-header {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 13px;
+  margin-bottom: 5px;
+  margin-top: 10px;
+}

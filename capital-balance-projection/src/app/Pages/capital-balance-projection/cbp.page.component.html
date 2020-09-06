@@ -1,0 +1,9 @@
+<div class="box-form">
+  <cbp-input-form (validFormSubmitEvent) = "onValidFormSubmit($event)" [isChartGridHidden]="showChartAndTable"></cbp-input-form>
+</div>
+<div>
+  <cbp-projection-chart *ngIf="showChartAndTable"></cbp-projection-chart>
+</div>
+<div>
+  <cbp-projection-grid *ngIf="showChartAndTable"></cbp-projection-grid>
+</div>
