@@ -48,6 +48,7 @@ export class CBPDataSharingService {
     let taxValue = 0;
     let withDrawlValue = 0;
     let endBalance = 0;
+    let yearAgeFormat = '';
     let i = 0;
     for (let age = inputParameters.startingAge;
       age <= (inputParameters.startingAge + inputParameters.projectionPeriod);

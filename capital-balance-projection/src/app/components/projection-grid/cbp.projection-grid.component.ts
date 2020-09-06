@@ -54,8 +54,8 @@ export class ProjectionGridComponent implements OnInit, OnDestroy {
       minWidth: 100,
     };
     this.pivotPanelShow = 'always';
-    this.paginationPageSize = 25;
-    this.pageSizes = [25, 50, 100, 250, 500];
+    this.paginationPageSize = 100; /** Initilize the page size to 100. */
+    this.pageSizes = [25, 50, 100, 250, 500]; /** array of paze size options. */
   }
 
   /**
@@ -67,7 +67,8 @@ export class ProjectionGridComponent implements OnInit, OnDestroy {
      const cbpFormatter = new CBPFormatter();
     /** column def initilization for the row. */
      this.columnDefs = [
-      {headerName: 'Year/Age', field: 'year' },
+      {headerName: 'Year', field: 'year' }, 
+      {headerName: 'Age', field: 'age' },
       {headerName: 'Starting Balance', field: 'startingBalance', valueFormatter: (params) => cbpFormatter.currencyFormatter(params)},
       {headerName: 'Contributions', field: 'contributionValue', valueFormatter: (params) => cbpFormatter.currencyFormatter(params)},
       {headerName: 'Earnings', field: 'earningsValue', valueFormatter: (params) => cbpFormatter.currencyFormatter(params)},

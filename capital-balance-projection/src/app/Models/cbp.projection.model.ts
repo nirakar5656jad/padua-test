@@ -32,13 +32,13 @@ export class CBPProjectionModel {
   /** This is the end balance of the projection in each year. */
   public endBalance: number;
 
+  public yearAgeFormat?: string;
+
   /**
    * This is a constructor of this class.
    * This function will initilize all the properties of this class to zero.
    */
   constructor() {
-    this.age = 0;
-    this.year = 0;
     this.startingBalance = 0;
     this.contributionValue = 0;
     this.earningsValue = 0;
@@ -46,5 +46,6 @@ export class CBPProjectionModel {
     this.taxValue = 0;
     this.withDrawlValue = 0;
     this.endBalance = 0;
+    this.yearAgeFormat = '';
   }
 }
