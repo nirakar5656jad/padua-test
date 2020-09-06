@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter, Input} from '@angular/core';
-import { FormControl, FormGroup, Validators, ValidatorFn, AbstractControl} from '@angular/forms';
+import { FormControl, FormGroup, Validators, ValidatorFn, AbstractControl, ValidationErrors} from '@angular/forms';
 import { CBPDataSharingService } from 'src/app/services/cbp.data.sharing.service';
+import { withdrawalAgeValidator } from 'src/app/validators/cbp.validators';
 
 @Component({
   // tslint:disable-next-line: component-selector
@@ -84,7 +85,6 @@ export class InputFormComponent implements OnInit {
         Validators.required,
         Validators.pattern('^[0-9]+(.[0-9]{0,2})?$'),
         Validators.min(0),
-        // this.withdrawalAgeValidator,
       ]),
       /** starting  balance is required and should be numebr. */
       startingBalance: new FormControl('', [
@@ -107,7 +107,8 @@ export class InputFormComponent implements OnInit {
         Validators.required,
         Validators.min(0),
       ]),
-    });
+    }, { validators : withdrawalAgeValidator('withdrawalAge', 'startingAge')}
+    );
 
     /** initilizing the initial value in the form. */
     this.inputForm.patchValue({
@@ -133,6 +134,9 @@ export class InputFormComponent implements OnInit {
   public onClear() {
     /** This will clear the form. */
     this.inputForm.reset();
+    this.inputForm.patchValue({
+      startingYear : new Date().getFullYear(),
+    });
   }
 
   /**
@@ -167,18 +171,4 @@ export class InputFormComponent implements OnInit {
   public onInputChangeEvent($event): void {
     this.onSubmit();
   }
-
-  // /**
-  //  * This is the withdrawalage validators.
-  //  * @param withdrawalAge user entered withdrawal age
-  //  * @param startingAge user entered starting age.
-  //  */
-  // private withdrawalAgeValidator(control: AbstractControl): ValidatorFn {
-  //   return  (c: AbstractControl): {[key: string]: boolean} | null => {
-  //     if ( control.value as number < 45) {
-  //       return { smaller: true };
-  //     }
-  //     return null;
-  //   };
-  // }
 }

@@ -67,7 +67,7 @@ export class ProjectionGridComponent implements OnInit, OnDestroy {
      const cbpFormatter = new CBPFormatter();
     /** column def initilization for the row. */
      this.columnDefs = [
-      {headerName: 'Year', field: 'year' }, 
+      {headerName: 'Year', field: 'year' },
       {headerName: 'Age', field: 'age' },
       {headerName: 'Starting Balance', field: 'startingBalance', valueFormatter: (params) => cbpFormatter.currencyFormatter(params)},
       {headerName: 'Contributions', field: 'contributionValue', valueFormatter: (params) => cbpFormatter.currencyFormatter(params)},

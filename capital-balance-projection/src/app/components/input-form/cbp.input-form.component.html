@@ -40,7 +40,7 @@
       </mat-grid-tile>
       <mat-grid-tile>
         <mat-form-field class="example-full-width">
-          <input matInput type="number" placeholder="Starting Year" formControlName="startingYear" [readonly]="false" (change)="onInputChangeEvent($event)">
+          <input matInput type="number" placeholder="Starting Year" formControlName="startingYear" [readonly]="true" (change)="onInputChangeEvent($event)">
           <mat-icon matSuffix><b>date_range</b></mat-icon>
           <mat-error *ngIf="inputForm.controls.startingYear.errors?.required && inputForm.controls.startingYear.touched">
             Starting Year is <strong>required.</strong>
@@ -169,7 +169,7 @@
           <mat-error *ngIf="inputForm.controls.withdrawalAge.errors?.min && inputForm.controls.withdrawalAge.touched">
             Withdrawal age should be <strong>Positive number.</strong>
           </mat-error>
-          <mat-error *ngIf="inputForm.controls.withdrawalAge.errors?.smaller && inputForm.controls.withdrawalAge.touched">
+          <mat-error *ngIf="inputForm.controls.withdrawalAge.errors?.withdrawalAgeError && inputForm.controls.withdrawalAge.touched">
             Withdrawal age should be greater than <strong>Starting Age.</strong>
           </mat-error>
         </mat-form-field>

@@ -1,4 +1,5 @@
 /**
+ * This is the model structure for the projection data.
  * @description This is a model class that defines the basic structure of projection.
  * @created 03 sep 2020
  * @author Nirakar Puri
