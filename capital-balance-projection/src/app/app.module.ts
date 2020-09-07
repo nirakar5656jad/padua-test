@@ -6,7 +6,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { FormsModule } from '@angular/forms';
 import { InputFormComponent } from './components/input-form/cbp.input-form.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatGridListModule, MatButtonModule, MatIconModule, MatInputModule, MatSelectModule } from '@angular/material';
+import { MatGridListModule, MatButtonModule, MatIconModule, MatInputModule, MatSelectModule, MatCardModule } from '@angular/material';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ProjectionChartComponent } from './components/projection-chart/cbp.projection-chart.component';
 import { ChartsModule, ThemeService } from 'ng2-charts';
@@ -36,6 +36,7 @@ import { CBPAppbarComponent } from './components/appbar/cbp.appbar.component';
     MatInputModule,
     MatSelectModule,
     MatGridListModule,
+    MatCardModule,
     MatButtonModule, // mat module imports ends
     ReactiveFormsModule,
     ChartsModule,

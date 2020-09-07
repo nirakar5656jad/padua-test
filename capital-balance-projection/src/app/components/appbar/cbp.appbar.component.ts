@@ -7,15 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cbp.appbar.component.scss']
 })
 export class CBPAppbarComponent implements OnInit {
-  /** This is the title of the app. */
-  public title: string;
+  /**
+   * This is the constructor function of the class.
+   */
   constructor() { }
 
   /**
    * This function is called when the component is initilized on the screen.
    */
   ngOnInit() {
-    this.title = 'Capital Balance Projection';
   }
 
 }

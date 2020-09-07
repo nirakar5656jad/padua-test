@@ -1,7 +1,7 @@
 import { Component, OnInit, Output, EventEmitter, Input} from '@angular/core';
 import { FormControl, FormGroup, Validators, ValidatorFn, AbstractControl, ValidationErrors} from '@angular/forms';
 import { CBPDataSharingService } from 'src/app/services/cbp.data.sharing.service';
-import { withdrawalAgeValidator } from 'src/app/validators/cbp.validators';
+import { CBPValidators } from 'src/app/validators/cbp.validators';
 
 @Component({
   // tslint:disable-next-line: component-selector
@@ -30,6 +30,7 @@ export class InputFormComponent implements OnInit {
    * This function is called when the component is initilized on the screen.
    */
   ngOnInit() {
+    const cbpValidators = new CBPValidators();
     /** initilize chart grid hidden to false */
     this.isChartGridHidden = true;
 
@@ -107,7 +108,7 @@ export class InputFormComponent implements OnInit {
         Validators.required,
         Validators.min(0),
       ]),
-    }, { validators : withdrawalAgeValidator('withdrawalAge', 'startingAge')}
+    }, { validators : cbpValidators.withdrawalAgeValidator('withdrawalAge', 'startingAge')}
     );
 
     /** initilizing the initial value in the form. */
@@ -169,6 +170,6 @@ export class InputFormComponent implements OnInit {
    * @param $event Changed value in the form.
    */
   public onInputChangeEvent($event): void {
-    this.onSubmit();
+    this.onSubmit(); /** This will submit the form. */
   }
 }

@@ -11,8 +11,14 @@ export class CBPPageComponent implements OnInit {
   /** this variable will determine to show chart and table or not. */
   public showChartAndTable = false;
 
+  /**
+   * Constructor of this component.
+   */
   constructor() { }
 
+  /**
+   * This lifecycle hook will get called when the component is loaded.
+   */
   ngOnInit() {
   }
 

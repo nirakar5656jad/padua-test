@@ -1,185 +1,192 @@
-<div class="form-group">
-  <form [formGroup]="inputForm" (ngSubmit)="onSubmit()">
-    <mat-grid-list cols="4" rowHeight="85px" gutterSize="15px">
-      <mat-grid-tile>
-        <mat-form-field class="example-full-width">
-          <input matInput type="number" placeholder="Starting Balance" formControlName="startingBalance" [readonly]="false" (change)="onInputChangeEvent($event)">
-          <mat-icon matSuffix><b>attach_money</b></mat-icon>
-          <mat-error *ngIf="inputForm.controls.startingBalance.errors?.required && inputForm.controls.startingBalance.touched">
-            Starting Balance is <strong>required.</strong>
+<mat-card class="cbp-card">
+  <mat-card-header>
+    <mat-card-title><strong>Capital Balance Projection</strong></mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="form-group">
+      <form [formGroup]="inputForm" (ngSubmit)="onSubmit()">
+        <mat-grid-list cols="4" rowHeight="85px" gutterSize="15px">
+          <mat-grid-tile>
+            <mat-form-field class="cbp-full-width">
+              <input matInput type="number" placeholder="Starting Balance" formControlName="startingBalance" [readonly]="false" (change)="onInputChangeEvent($event)">
+              <mat-icon matSuffix><b>attach_money</b></mat-icon>
+              <mat-error *ngIf="inputForm.controls.startingBalance.errors?.required && inputForm.controls.startingBalance.touched">
+                Starting Balance is <strong>required.</strong>
+              </mat-error>
+              <mat-error *ngIf="inputForm.controls.startingBalance.errors?.min && inputForm.controls.startingBalance.touched">
+                Starting Balance should be <strong>Positive number.</strong>
+              </mat-error>
+              <mat-error *ngIf="inputForm.controls.startingBalance.errors?.pattern && inputForm.controls.startingBalance.touched">
+                Starting Balance should be <strong>valid number (2 precison decimal).</strong>
+              </mat-error>
+            </mat-form-field>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <mat-form-field class="cbp-full-width">
+              <input matInput type="number" placeholder="Projection Period" formControlName="projectionPeriod" [readonly]="false" (change)="onInputChangeEvent($event)">
+              <mat-error *ngIf="inputForm.controls.projectionPeriod.errors?.required && inputForm.controls.projectionPeriod.touched">
+                Projection Period is <strong>required.</strong>
+              </mat-error>
+              <mat-error *ngIf="inputForm.controls.projectionPeriod.errors?.min && inputForm.controls.projectionPeriod.touched">
+                Projection Period should be <strong>Positive number.</strong>
+              </mat-error>
+            </mat-form-field>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <mat-form-field class="cbp-full-width">
+              <input matInput type="number" placeholder="Starting Age" formControlName="startingAge" [readonly]="false" (change)="onInputChangeEvent($event)">
+              <mat-error *ngIf="inputForm.controls.startingAge.errors?.required && inputForm.controls.startingAge.touched">
+                Starting Age is <strong>required.</strong>
+              </mat-error>
+              <mat-error *ngIf="inputForm.controls.startingAge.errors?.min && inputForm.controls.startingAge.touched">
+                Starting Age should be <strong>Positive number.</strong>
+              </mat-error>
+            </mat-form-field>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <mat-form-field class="cbp-full-width">
+              <input matInput type="number" placeholder="Starting Year" formControlName="startingYear" [readonly]="true" (change)="onInputChangeEvent($event)">
+              <mat-icon matSuffix><b>date_range</b></mat-icon>
+              <mat-error *ngIf="inputForm.controls.startingYear.errors?.required && inputForm.controls.startingYear.touched">
+                Starting Year is <strong>required.</strong>
+              </mat-error>
+              <mat-error *ngIf="inputForm.controls.startingYear.errors?.min && inputForm.controls.startingYear.touched">
+                Starting Year should be <strong>Positive number.</strong>
+              </mat-error>
+            </mat-form-field>
+          </mat-grid-tile>
+        </mat-grid-list>
+        <mat-form-field class="cbp-full-width">
+          <input matInput type="number" placeholder="Salary" formControlName="salary" (change)="onInputChangeEvent($event)">
+          <mat-icon matSuffix>attach_money</mat-icon>
+          <mat-error *ngIf="inputForm.controls.salary.errors?.required && inputForm.controls.salary.touched">
+            Salary is <strong>required.</strong>
           </mat-error>
-          <mat-error *ngIf="inputForm.controls.startingBalance.errors?.min && inputForm.controls.startingBalance.touched">
-            Starting Balance should be <strong>Positive number.</strong>
+          <mat-error *ngIf="inputForm.controls.salary.errors?.min && inputForm.controls.salary.touched">
+            Salary should be <strong>Positive number.</strong>
           </mat-error>
-          <mat-error *ngIf="inputForm.controls.startingBalance.errors?.pattern && inputForm.controls.startingBalance.touched">
-            Starting Balance should be <strong>valid number (2 precison decimal).</strong>
-          </mat-error>
-        </mat-form-field>
-      </mat-grid-tile>
-      <mat-grid-tile>
-        <mat-form-field class="example-full-width">
-          <input matInput type="number" placeholder="Projection Period" formControlName="projectionPeriod" [readonly]="false" (change)="onInputChangeEvent($event)">
-          <mat-error *ngIf="inputForm.controls.projectionPeriod.errors?.required && inputForm.controls.projectionPeriod.touched">
-            Projection Period is <strong>required.</strong>
-          </mat-error>
-          <mat-error *ngIf="inputForm.controls.projectionPeriod.errors?.min && inputForm.controls.projectionPeriod.touched">
-            Projection Period should be <strong>Positive number.</strong>
-          </mat-error>
-        </mat-form-field>
-      </mat-grid-tile>
-      <mat-grid-tile>
-        <mat-form-field class="example-full-width">
-          <input matInput type="number" placeholder="Starting Age" formControlName="startingAge" [readonly]="false" (change)="onInputChangeEvent($event)">
-          <mat-error *ngIf="inputForm.controls.startingAge.errors?.required && inputForm.controls.startingAge.touched">
-            Starting Age is <strong>required.</strong>
-          </mat-error>
-          <mat-error *ngIf="inputForm.controls.startingAge.errors?.min && inputForm.controls.startingAge.touched">
-            Starting Age should be <strong>Positive number.</strong>
-          </mat-error>
-        </mat-form-field>
-      </mat-grid-tile>
-      <mat-grid-tile>
-        <mat-form-field class="example-full-width">
-          <input matInput type="number" placeholder="Starting Year" formControlName="startingYear" [readonly]="true" (change)="onInputChangeEvent($event)">
-          <mat-icon matSuffix><b>date_range</b></mat-icon>
-          <mat-error *ngIf="inputForm.controls.startingYear.errors?.required && inputForm.controls.startingYear.touched">
-            Starting Year is <strong>required.</strong>
-          </mat-error>
-          <mat-error *ngIf="inputForm.controls.startingYear.errors?.min && inputForm.controls.startingYear.touched">
-            Starting Year should be <strong>Positive number.</strong>
-          </mat-error>
-        </mat-form-field>
-      </mat-grid-tile>
-    </mat-grid-list>
-    <mat-form-field class="example-full-width">
-      <input matInput type="number" placeholder="Salary" formControlName="salary" (change)="onInputChangeEvent($event)">
-      <mat-icon matSuffix>attach_money</mat-icon>
-      <mat-error *ngIf="inputForm.controls.salary.errors?.required && inputForm.controls.salary.touched">
-        Salary is <strong>required.</strong>
-      </mat-error>
-      <mat-error *ngIf="inputForm.controls.salary.errors?.min && inputForm.controls.salary.touched">
-        Salary should be <strong>Positive number.</strong>
-      </mat-error>
-      <mat-error *ngIf="inputForm.controls.salary.errors?.pattern && inputForm.controls.salary.touched">
-        Salary should be <strong>valid number (2 precison decimal).</strong>
-      </mat-error>
-    </mat-form-field>
-    <mat-grid-list cols="3" rowHeight="85px" gutterSize="15px">
-      <mat-grid-tile>
-        <mat-form-field class="example-full-width">
-          <input matInput type="number" placeholder="Contribution Rate" formControlName="contributionRate" (change)="onInputChangeEvent($event)">
-          <mat-icon [inline]="true" matSuffix><strong>%</strong></mat-icon>
-          <mat-error *ngIf="inputForm.controls.contributionRate.errors?.required && inputForm.controls.contributionRate.touched">
-            Contribution Rate is <strong>required.</strong>
-          </mat-error>
-          <mat-error *ngIf="inputForm.controls.contributionRate.errors?.min && inputForm.controls.contributionRate.touched">
-            ContributionRate should be <strong>Positive number.</strong>
-          </mat-error>
-          <mat-error *ngIf="inputForm.controls.contributionRate.errors?.pattern && inputForm.controls.contributionRate.touched">
-            ContributionRate should be <strong>valid number (2 precison decimal).</strong>
+          <mat-error *ngIf="inputForm.controls.salary.errors?.pattern && inputForm.controls.salary.touched">
+            Salary should be <strong>valid number (2 precison decimal).</strong>
           </mat-error>
         </mat-form-field>
-      </mat-grid-tile>
-      <mat-grid-tile>
-        <mat-form-field class="example-full-width">
-          <input matInput type="number" placeholder="Inflation Rate" formControlName="inflationRate" (change)="onInputChangeEvent($event)">
-          <mat-icon [inline]="true" matSuffix><strong>%</strong></mat-icon>
-          <mat-error *ngIf="inputForm.controls.inflationRate.errors?.required && inputForm.controls.inflationRate.touched">
-            Inflation Rate is <strong>required.</strong>
-          </mat-error>
-          <mat-error *ngIf="inputForm.controls.inflationRate.errors?.min && inputForm.controls.inflationRate.touched">
-            Inflation Rate should be <strong>Positive number.</strong>
-          </mat-error>
-          <mat-error *ngIf="inputForm.controls.inflationRate.errors?.pattern && inputForm.controls.inflationRate.touched">
-            Inflation Rate should be <strong>valid number (2 precison decimal)..</strong>
-          </mat-error>
-        </mat-form-field>
-      </mat-grid-tile>
-      <mat-grid-tile>
-        <mat-form-field class="example-full-width">
-          <input matInput type="number" placeholder="Earnings" formControlName="earningsRate" (change)="onInputChangeEvent($event)">
-          <mat-icon [inline]="true" matSuffix><strong>%</strong></mat-icon>
-          <mat-error *ngIf="inputForm.controls.earningsRate.errors?.required && inputForm.controls.earningsRate.touched">
-            Earning Rate is <strong>required.</strong>
-          </mat-error>
-          <mat-error *ngIf="inputForm.controls.earningsRate.errors?.min && inputForm.controls.earningsRate.touched">
-            Earning Rate should be <strong>Positive number.</strong>
-          </mat-error>
-          <mat-error *ngIf="inputForm.controls.earningsRate.errors?.pattern && inputForm.controls.earningsRate.touched">
-            Earning Rate should be <strong>valid number (2 precison decimal)..</strong>
-          </mat-error>
-        </mat-form-field>
-      </mat-grid-tile>
-    </mat-grid-list>
-    <mat-grid-list cols="3" rowHeight="85px" gutterSize="15px">
-      <mat-grid-tile>
-        <mat-form-field class="example-full-width">
-          <input matInput type="number" placeholder="Fees" formControlName="feeRate" (change)="onInputChangeEvent($event)">
-          <mat-icon [inline]="true" matSuffix><strong>%</strong></mat-icon>
-          <mat-error *ngIf="inputForm.controls.feeRate.errors?.required && inputForm.controls.feeRate.touched">
-            Fee Rate is <strong>required.</strong>
-          </mat-error>
-          <mat-error *ngIf="inputForm.controls.feeRate.errors?.min && inputForm.controls.feeRate.touched">
-            Fee Rate should be <strong>Positive number.</strong>
-          </mat-error>
-          <mat-error *ngIf="inputForm.controls.feeRate.errors?.pattern && inputForm.controls.feeRate.touched">
-            Fee Rate should be <strong>valid number (2 precison decimal)..</strong>
-          </mat-error>
-        </mat-form-field>
-      </mat-grid-tile>
-      <mat-grid-tile>
-        <mat-form-field class="example-full-width">
-          <input matInput type="number" placeholder="Tax" formControlName="taxRate" (change)="onInputChangeEvent($event)">
-          <mat-icon [inline]="true" matSuffix><strong>%</strong></mat-icon>
-          <mat-error *ngIf="inputForm.controls.taxRate.errors?.required && inputForm.controls.taxRate.touched">
-            Tax Rate is <strong>required.</strong>
-          </mat-error>
-          <mat-error *ngIf="inputForm.controls.taxRate.errors?.min && inputForm.controls.taxRate.touched">
-            Tax Rate should be <strong>Positive number.</strong>
-          </mat-error>
-          <mat-error *ngIf="inputForm.controls.taxRate.errors?.pattern && inputForm.controls.taxRate.touched">
-            Tax Rate should be <strong>valid number (2 precison decimal)..</strong>
-          </mat-error>
-        </mat-form-field>
-      </mat-grid-tile>
-      <mat-grid-tile>
-        <mat-form-field class="example-full-width">
-          <input matInput type="number" placeholder="Withdrawal Rate" formControlName="withdrawalRate" (change)="onInputChangeEvent($event)">
-          <mat-icon [inline]="true" matSuffix><strong>%</strong></mat-icon>
-          <mat-error *ngIf="inputForm.controls.withdrawalRate.errors?.required && inputForm.controls.withdrawalRate.touched">
-            Withdrawal Rate is <strong>required.</strong>
-          </mat-error>
-          <mat-error *ngIf="inputForm.controls.withdrawalRate.errors?.min && inputForm.controls.withdrawalRate.touched">
-            Withdrawal Rate should be <strong>Positive number.</strong>
-          </mat-error>
-          <mat-error *ngIf="inputForm.controls.withdrawalRate.errors?.pattern && inputForm.controls.withdrawalRate.touched">
-            Withdrawal Rate should be <strong>valid number (2 precison decimal)..</strong>
-          </mat-error>
-        </mat-form-field>
-      </mat-grid-tile>
-    </mat-grid-list>
-    <mat-grid-list cols="3" rowHeight="85px" gutterSize="15px">
-      <mat-grid-tile>
-        <mat-form-field class="example-full-width">
-          <input matInput type="number" placeholder="Withdrawal Age" formControlName="withdrawalAge" (change)="onInputChangeEvent($event)">
-          <mat-icon matSuffix [inline]="true"><strong>A</strong></mat-icon>
-          <mat-error *ngIf="inputForm.controls.withdrawalAge.errors?.required && inputForm.controls.withdrawalAge.touched">
-            Withdrawal age is <strong>required.</strong>
-          </mat-error>
-          <mat-error *ngIf="inputForm.controls.withdrawalAge.errors?.min && inputForm.controls.withdrawalAge.touched">
-            Withdrawal age should be <strong>Positive number.</strong>
-          </mat-error>
-          <mat-error *ngIf="inputForm.controls.withdrawalAge.errors?.withdrawalAgeError && inputForm.controls.withdrawalAge.touched">
-            Withdrawal age should be greater than <strong>Starting Age.</strong>
-          </mat-error>
-        </mat-form-field>
-      </mat-grid-tile>
-    </mat-grid-list>
-    <mat-grid-list cols="1" rowHeight="85px">
-      <mat-grid-tile>
-        <button type="submit" mat-raised-button color="primary">Project</button>
-        <button mat-raised-button color="warn" (click)="onClear()">Clear</button>
-      </mat-grid-tile>
-    </mat-grid-list>
-  </form>
-</div>
+        <mat-grid-list cols="3" rowHeight="85px" gutterSize="15px">
+          <mat-grid-tile>
+            <mat-form-field class="cbp-full-width">
+              <input matInput type="number" placeholder="Contribution Rate" formControlName="contributionRate" (change)="onInputChangeEvent($event)">
+              <mat-icon [inline]="true" matSuffix><strong>%</strong></mat-icon>
+              <mat-error *ngIf="inputForm.controls.contributionRate.errors?.required && inputForm.controls.contributionRate.touched">
+                Contribution Rate is <strong>required.</strong>
+              </mat-error>
+              <mat-error *ngIf="inputForm.controls.contributionRate.errors?.min && inputForm.controls.contributionRate.touched">
+                ContributionRate should be <strong>Positive number.</strong>
+              </mat-error>
+              <mat-error *ngIf="inputForm.controls.contributionRate.errors?.pattern && inputForm.controls.contributionRate.touched">
+                ContributionRate should be <strong>valid number (2 precison decimal).</strong>
+              </mat-error>
+            </mat-form-field>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <mat-form-field class="cbp-full-width">
+              <input matInput type="number" placeholder="Inflation Rate" formControlName="inflationRate" (change)="onInputChangeEvent($event)">
+              <mat-icon [inline]="true" matSuffix><strong>%</strong></mat-icon>
+              <mat-error *ngIf="inputForm.controls.inflationRate.errors?.required && inputForm.controls.inflationRate.touched">
+                Inflation Rate is <strong>required.</strong>
+              </mat-error>
+              <mat-error *ngIf="inputForm.controls.inflationRate.errors?.min && inputForm.controls.inflationRate.touched">
+                Inflation Rate should be <strong>Positive number.</strong>
+              </mat-error>
+              <mat-error *ngIf="inputForm.controls.inflationRate.errors?.pattern && inputForm.controls.inflationRate.touched">
+                Inflation Rate should be <strong>valid number (2 precison decimal)..</strong>
+              </mat-error>
+            </mat-form-field>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <mat-form-field class="cbp-full-width">
+              <input matInput type="number" placeholder="Earnings" formControlName="earningsRate" (change)="onInputChangeEvent($event)">
+              <mat-icon [inline]="true" matSuffix><strong>%</strong></mat-icon>
+              <mat-error *ngIf="inputForm.controls.earningsRate.errors?.required && inputForm.controls.earningsRate.touched">
+                Earning Rate is <strong>required.</strong>
+              </mat-error>
+              <mat-error *ngIf="inputForm.controls.earningsRate.errors?.min && inputForm.controls.earningsRate.touched">
+                Earning Rate should be <strong>Positive number.</strong>
+              </mat-error>
+              <mat-error *ngIf="inputForm.controls.earningsRate.errors?.pattern && inputForm.controls.earningsRate.touched">
+                Earning Rate should be <strong>valid number (2 precison decimal)..</strong>
+              </mat-error>
+            </mat-form-field>
+          </mat-grid-tile>
+        </mat-grid-list>
+        <mat-grid-list cols="3" rowHeight="85px" gutterSize="15px">
+          <mat-grid-tile>
+            <mat-form-field class="cbp-full-width">
+              <input matInput type="number" placeholder="Fees" formControlName="feeRate" (change)="onInputChangeEvent($event)">
+              <mat-icon [inline]="true" matSuffix><strong>%</strong></mat-icon>
+              <mat-error *ngIf="inputForm.controls.feeRate.errors?.required && inputForm.controls.feeRate.touched">
+                Fee Rate is <strong>required.</strong>
+              </mat-error>
+              <mat-error *ngIf="inputForm.controls.feeRate.errors?.min && inputForm.controls.feeRate.touched">
+                Fee Rate should be <strong>Positive number.</strong>
+              </mat-error>
+              <mat-error *ngIf="inputForm.controls.feeRate.errors?.pattern && inputForm.controls.feeRate.touched">
+                Fee Rate should be <strong>valid number (2 precison decimal)..</strong>
+              </mat-error>
+            </mat-form-field>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <mat-form-field class="cbp-full-width">
+              <input matInput type="number" placeholder="Tax" formControlName="taxRate" (change)="onInputChangeEvent($event)">
+              <mat-icon [inline]="true" matSuffix><strong>%</strong></mat-icon>
+              <mat-error *ngIf="inputForm.controls.taxRate.errors?.required && inputForm.controls.taxRate.touched">
+                Tax Rate is <strong>required.</strong>
+              </mat-error>
+              <mat-error *ngIf="inputForm.controls.taxRate.errors?.min && inputForm.controls.taxRate.touched">
+                Tax Rate should be <strong>Positive number.</strong>
+              </mat-error>
+              <mat-error *ngIf="inputForm.controls.taxRate.errors?.pattern && inputForm.controls.taxRate.touched">
+                Tax Rate should be <strong>valid number (2 precison decimal)..</strong>
+              </mat-error>
+            </mat-form-field>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <mat-form-field class="cbp-full-width">
+              <input matInput type="number" placeholder="Withdrawal Rate" formControlName="withdrawalRate" (change)="onInputChangeEvent($event)">
+              <mat-icon [inline]="true" matSuffix><strong>%</strong></mat-icon>
+              <mat-error *ngIf="inputForm.controls.withdrawalRate.errors?.required && inputForm.controls.withdrawalRate.touched">
+                Withdrawal Rate is <strong>required.</strong>
+              </mat-error>
+              <mat-error *ngIf="inputForm.controls.withdrawalRate.errors?.min && inputForm.controls.withdrawalRate.touched">
+                Withdrawal Rate should be <strong>Positive number.</strong>
+              </mat-error>
+              <mat-error *ngIf="inputForm.controls.withdrawalRate.errors?.pattern && inputForm.controls.withdrawalRate.touched">
+                Withdrawal Rate should be <strong>valid number (2 precison decimal)..</strong>
+              </mat-error>
+            </mat-form-field>
+          </mat-grid-tile>
+        </mat-grid-list>
+        <mat-grid-list cols="3" rowHeight="85px" gutterSize="15px">
+          <mat-grid-tile>
+            <mat-form-field class="cbp-full-width">
+              <input matInput type="number" placeholder="Withdrawal Age" formControlName="withdrawalAge" (change)="onInputChangeEvent($event)">
+              <mat-icon matSuffix [inline]="true"><strong>A</strong></mat-icon>
+              <mat-error *ngIf="inputForm.controls.withdrawalAge.errors?.required && inputForm.controls.withdrawalAge.touched">
+                Withdrawal age is <strong>required.</strong>
+              </mat-error>
+              <mat-error *ngIf="inputForm.controls.withdrawalAge.errors?.min && inputForm.controls.withdrawalAge.touched">
+                Withdrawal age should be <strong>Positive number.</strong>
+              </mat-error>
+              <mat-error *ngIf="inputForm.controls.withdrawalAge.errors?.withdrawalAgeError && inputForm.controls.withdrawalAge.touched">
+                Withdrawal age should be greater than <strong>Starting Age.</strong>
+              </mat-error>
+            </mat-form-field>
+          </mat-grid-tile>
+        </mat-grid-list>
+        <mat-grid-list cols="1" rowHeight="85px">
+          <mat-grid-tile>
+            <button type="submit" mat-raised-button color="primary">Project</button>
+            <button mat-raised-button color="warn" (click)="onClear()">Clear</button>
+          </mat-grid-tile>
+        </mat-grid-list>
+      </form>
+    </div>
+  </mat-card-content>
+</mat-card>
