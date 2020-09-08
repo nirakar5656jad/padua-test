@@ -182,8 +182,10 @@
         </mat-grid-list>
         <mat-grid-list cols="1" rowHeight="85px">
           <mat-grid-tile>
-            <button type="submit" mat-raised-button color="primary">Project</button>
-            <button mat-raised-button color="warn" (click)="onClear()">Clear</button>
+            <div class="cbp-button-row">
+              <button type="submit" mat-raised-button color="primary">Project</button>
+              <button mat-raised-button color="warn" (click)="onClear()">Clear</button>
+            </div>
           </mat-grid-tile>
         </mat-grid-list>
       </form>
